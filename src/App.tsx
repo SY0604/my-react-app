@@ -1,36 +1,34 @@
-import React, { useEffect, useState } from "react";
-import "./App.css";
-
-interface User {
-  id: number;
-  name: string;
-  email: string;
-}
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import UsersPage from "./UsersPage";
+import PostsPage from "./PostsPage";
 
 const App: React.FC = () => {
-  // State to store user data
-  const [users, setUsers] = useState<User[]>([]);
+    return (
+        <Router>
+            <div>
+                <nav>
+                    <ul>
+                        <li>
+                            <Link to="/users">Users</Link>
+                        </li>
+                        <li>
+                            <Link to="/posts">Posts</Link>
+                        </li>
+                    </ul>
+                </nav>
 
-  // Fetch user data from the API when the component mounts
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-        .then((response) => response.json())
-        .then((data) => setUsers(data))
-        .catch((error) => console.error("Error fetching users:", error));
-  }, []);
-
-  return (
-      <div className="App">
-        <h1>User List</h1>
-        <ul>
-          {users.map((user) => (
-              <li key={user.id}>
-                <strong>{user.name}</strong>: {user.email}
-              </li>
-          ))}
-        </ul>
-      </div>
-  );
+                <Routes>
+                    <Route path="/users" element={<UsersPage />} />
+                    <Route path="/posts" element={<PostsPage />} />
+                    <Route
+                        path="/"
+                        element={<div>Welcome! Please select a page from above.</div>}
+                    />
+                </Routes>
+            </div>
+        </Router>
+    );
 };
 
 export default App;

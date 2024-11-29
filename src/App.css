@@ -1,21 +1,86 @@
-.App {
+/* General Styles */
+body {
   font-family: Arial, sans-serif;
-  margin: 20px;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9; /* Light background */
+  color: #333; /* Text color */
 }
 
+/* Center the container */
+.container {
+  max-width: 800px;
+  margin: 50px auto; /* Center horizontally */
+  padding: 20px;
+  background-color: #fff; /* White background for contrast */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Heading */
 h1 {
-  color: #333;
+  color: #007bff;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
+/* Navigation Bar */
+nav {
+  background-color: #007bff; /* Blue */
+  padding: 10px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* List Items */
 ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 li {
   margin: 10px 0;
-  padding: 10px;
+  padding: 15px;
+  background-color: #eaf2f8; /* Light blue */
   border: 1px solid #ddd;
   border-radius: 5px;
-  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+li:hover {
+  transform: translateY(-3px); /* Lift up on hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Slightly larger shadow */
+}
+
+li strong {
+  font-size: 1.1em;
+}
+
+li span {
+  display: block;
+  color: #666;
+  font-size: 0.9em;
+  margin-top: 5px;
 }
